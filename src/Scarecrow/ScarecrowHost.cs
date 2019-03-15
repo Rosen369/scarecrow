@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Scarecrow
 {
-    public class Host
+    public class ScarecrowHost
     {
         public void Start()
         {
