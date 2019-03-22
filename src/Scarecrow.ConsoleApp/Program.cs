@@ -6,7 +6,7 @@ namespace Scarecrow.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var host = new ScarecrowHost();
+            var host = new Host(new Uri("localhost:10010"));
             host.Start();
             Console.WriteLine("Hello World!");
         }
