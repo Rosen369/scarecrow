@@ -55,7 +55,7 @@ namespace Scarecrow
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine("handle error: " + ex.Message);
+                            this._configuration.ErrorHandler(ex);
                             throw;
                         }
                     });
@@ -77,7 +77,7 @@ namespace Scarecrow
             }
             catch (Exception ex)
             {
-                Console.WriteLine("start listener error: " + ex.Message);
+                this._configuration.ErrorHandler(ex);
                 throw;
             }
         }
@@ -86,7 +86,7 @@ namespace Scarecrow
         {
             try
             {
-                using (var context = this._engine.CreateContext(ctx))
+                using (var context = await this._engine.CreateContext(ctx).ConfigureAwait(false))
                 {
                     await this._engine.HandleRequest(context).ConfigureAwait(false);
                     try
@@ -95,14 +95,14 @@ namespace Scarecrow
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("create response error: " + e.Message);
+                        this._configuration.ErrorHandler(e);
                         throw;
                     }
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("handle request error: " + e.Message);
+                this._configuration.ErrorHandler(e);
                 throw;
             }
         }

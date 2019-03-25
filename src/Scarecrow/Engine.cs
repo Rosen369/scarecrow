@@ -8,7 +8,7 @@ namespace Scarecrow
 {
     public class Engine : IEngine
     {
-        public Context CreateContext(HttpListenerContext hlctx)
+        public Task<Context> CreateContext(HttpListenerContext hlctx)
         {
             throw new NotImplementedException();
         }
@@ -18,17 +18,12 @@ namespace Scarecrow
             throw new NotImplementedException();
         }
 
-        public void HandleRequest(Context context)
-        {
-            throw new NotImplementedException();
-        }
-
         public void WriteResponse(HttpListenerResponse hlrsp, Context context)
         {
             throw new NotImplementedException();
         }
 
-        Task IEngine.HandleRequest(Context context)
+        public Task HandleRequest(Context context)
         {
             throw new NotImplementedException();
         }

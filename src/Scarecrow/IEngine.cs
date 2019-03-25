@@ -10,7 +10,7 @@ namespace Scarecrow
     {
         Task HandleRequest(Context context);
 
-        Context CreateContext(HttpListenerContext hlctx);
+        Task<Context> CreateContext(HttpListenerContext hlctx);
 
         void WriteResponse(HttpListenerResponse hlrsp, Context context);
     }

@@ -10,15 +10,28 @@ namespace Scarecrow
         {
         }
 
-        public Configuration(IBootstrapper bootstrapper)
+        public Configuration(IBootstrapper bootstrapper) : this(bootstrapper, (e) => { DefaultErrorHandler(e); })
+        {
+        }
+
+        public Configuration(IBootstrapper bootstrapper, Action<Exception> errorHandler)
         {
             this.Bootstrapper = bootstrapper;
             this.MaximumConnectionCount = ProcessorThreadCount;
+            this.ErrorHandler = errorHandler;
         }
 
         public IBootstrapper Bootstrapper { get; private set; }
 
         public int MaximumConnectionCount { get; set; }
+
+        public Action<Exception> ErrorHandler { get; set; }
+
+        private static void DefaultErrorHandler(Exception e)
+        {
+            var time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            Console.WriteLine(time + " -- Error:" + e.Message);
+        }
 
         private static int ProcessorThreadCount
         {
