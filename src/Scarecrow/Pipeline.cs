@@ -9,39 +9,27 @@ namespace Scarecrow
         public Pipeline(Context ctx)
         {
             this._ctx = ctx;
-            this.BeforePipeline = new List<IPipelineOp>();
-            this.AfterPipeline = new List<IPipelineOp>();
         }
 
         private Context _ctx;
 
-        public IList<IPipelineOp> BeforePipeline { get; private set; }
+        private IList<IPipelineOp> _beforePipeline = new List<IPipelineOp>();
 
-        public IList<IPipelineOp> AfterPipeline { get; private set; }
+        private IList<IPipelineOp> _afterPipeline = new List<IPipelineOp>();
 
-        private void AddBeforePipe()
+        private void GetBeforeActionOp(Context ctx)
         {
-            throw new NotImplementedException();
+            //TODO: implement map op from context
         }
 
-        private void AddAfterPipe()
+        private void GetAfterActionOp(Context ctx)
         {
-            throw new NotImplementedException();
-        }
-
-        private void AddBeforeAction()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AddAfterAction()
-        {
-            throw new NotImplementedException();
+            //TODO: implement map op from context
         }
 
         public void ExecuteAfterPipeline()
         {
-            var ap = this.AfterPipeline;
+            var ap = this._afterPipeline;
             foreach (var op in ap)
             {
                 op.ExcuteOperation(_ctx);
@@ -50,7 +38,7 @@ namespace Scarecrow
 
         public void ExecuteBeforePipeline()
         {
-            var bp = this.BeforePipeline;
+            var bp = this._beforePipeline;
             foreach (var op in bp)
             {
                 op.ExcuteOperation(_ctx);

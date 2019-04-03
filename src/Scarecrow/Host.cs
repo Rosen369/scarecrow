@@ -19,7 +19,7 @@ namespace Scarecrow
             this._baseUriList = baseUri;
             this._configuration = configuration;
             this._configuration.Bootstrapper.Initialise();
-            this._engine = new Engine();
+            this._engine = new Engine(configuration.PipelineRegistration);
         }
 
         private readonly IList<Uri> _baseUriList;

@@ -8,6 +8,13 @@ namespace Scarecrow
 {
     public class Engine : IEngine
     {
+        public Engine(PipelineRegistration pipelineRegistration)
+        {
+            this._pipelineRegistration = pipelineRegistration;
+        }
+
+        private PipelineRegistration _pipelineRegistration;
+
         public Task<Context> CreateContext(HttpListenerContext hlctx)
         {
             throw new NotImplementedException();

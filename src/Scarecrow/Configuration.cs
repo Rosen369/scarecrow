@@ -19,6 +19,7 @@ namespace Scarecrow
             this.Bootstrapper = bootstrapper;
             this.MaximumConnectionCount = ProcessorThreadCount;
             this.ErrorHandler = errorHandler;
+            this.PipelineRegistration = new PipelineRegistration();
         }
 
         public IBootstrapper Bootstrapper { get; private set; }
@@ -26,6 +27,18 @@ namespace Scarecrow
         public int MaximumConnectionCount { get; set; }
 
         public Action<Exception> ErrorHandler { get; set; }
+
+        public PipelineRegistration PipelineRegistration { get; private set; }
+
+        public void RegisterBeforePipeline<T>() where T : IPipelineOp
+        {
+            this.PipelineRegistration.RegisterBeforePipeline<T>();
+        }
+
+        public void RegisterAfterPipeline<T>() where T : IPipelineOp
+        {
+            this.PipelineRegistration.RegisterAfterPipeline<T>();
+        }
 
         private static void DefaultErrorHandler(Exception e)
         {
