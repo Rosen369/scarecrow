@@ -38,6 +38,9 @@ namespace Scarecrow
             {
                 throw new InvalidOperationException("current operation system is not supported");
             }
+
+            this.StartListener();
+
             Task.Run(() =>
             {
                 var semaphore = new Semaphore(this._configuration.MaximumConnectionCount, this._configuration.MaximumConnectionCount);

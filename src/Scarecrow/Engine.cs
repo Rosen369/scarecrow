@@ -17,11 +17,8 @@ namespace Scarecrow
 
         public Task<Context> CreateContext(HttpListenerContext hlctx)
         {
-            throw new NotImplementedException();
-        }
+            var context = new Context();
 
-        public void Dispose()
-        {
             throw new NotImplementedException();
         }
 
@@ -34,5 +31,11 @@ namespace Scarecrow
         {
             throw new NotImplementedException();
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
