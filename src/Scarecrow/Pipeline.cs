@@ -6,12 +6,15 @@ namespace Scarecrow
 {
     public class Pipeline : IPipeline
     {
-        public Pipeline(Context ctx)
+        public Pipeline(Context ctx, PipelineRegistration pipelineRegistration)
         {
             this._ctx = ctx;
+            this._pipelineRegistration = pipelineRegistration;
         }
 
         private Context _ctx;
+
+        private PipelineRegistration _pipelineRegistration;
 
         private IList<IPipelineOp> _beforePipeline = new List<IPipelineOp>();
 

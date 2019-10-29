@@ -17,9 +17,13 @@ namespace Scarecrow
 
         public Task<Context> CreateContext(HttpListenerContext hlctx)
         {
-            var context = new Context();
+            return Task.Factory.StartNew(() =>
+            {
+                var context = new Context();
+                //construct context
+                return context;
+            });
 
-            throw new NotImplementedException();
         }
 
         public void WriteResponse(HttpListenerResponse hlrsp, Context context)
@@ -29,7 +33,15 @@ namespace Scarecrow
 
         public Task HandleRequest(Context context)
         {
-            throw new NotImplementedException();
+            return Task.Factory.StartNew(() =>
+            {
+                var pipe = new Pipeline(context, this._pipelineRegistration);
+                pipe.ExecuteBeforePipeline();
+
+                //route action
+
+                pipe.ExecuteAfterPipeline();
+            });
         }
 
         public void Dispose()

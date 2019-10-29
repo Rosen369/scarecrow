@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scarecrow", "Scarecrow\Scarecrow.csproj", "{CBCBD3CE-41E8-49ED-8590-602B282FCAD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scarecrow.UnitTest", "Scarecrow.UnitTest\Scarecrow.UnitTest.csproj", "{B3503C62-718D-4B53-BA64-A7BC1A4ED4D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scarecrow.UnitTest", "Scarecrow.UnitTest\Scarecrow.UnitTest.csproj", "{B3503C62-718D-4B53-BA64-A7BC1A4ED4D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scarecrow.ConsoleApp", "Scarecrow.ConsoleApp\Scarecrow.ConsoleApp.csproj", "{57B0DF24-D942-46AA-AAF3-481B4CB8EC6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scarecrow.ConsoleApp", "Scarecrow.ConsoleApp\Scarecrow.ConsoleApp.csproj", "{57B0DF24-D942-46AA-AAF3-481B4CB8EC6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
